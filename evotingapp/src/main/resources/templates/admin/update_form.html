@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Contact</title>
+</head>
+<body>
+<section>
+    <div class="container mt-5">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Session message display -->
+                    <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-primary" role="alert">
+                        <p class="text-center" th:text="${session.message.content}"></p> 
+                        <th:block th:remove="all"></th:block>
+                        <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                    </div>  
+
+                    <!-- Form title -->
+                    <h2 class="text-center mb-4">Update Candidate</h2>
+                    
+                    <!-- Form -->
+                    <form class="row g-3" enctype="multipart/form-data" method="post" th:action="@{/admin/update-candidate}" th:object="${candidate}">
+                        <input type="hidden" th:value="${candidate.cid}" name="cid">
+                        
+                        <!-- Full Name -->
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="inputAddress" name="fullName" th:value="${candidate.fullName}" required="required">
+                        </div>
+                        
+                        <!-- Email and Mobile Number -->
+                        <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="inputEmail4" th:value="${candidate.email}" required="required">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label">Mobile Number</label>
+                            <input type="number" name="mob" class="form-control" id="inputPassword4" th:value="${candidate.mob}" required="required">
+                        </div>
+                        
+                        <!-- DOB and City -->
+                        <div class="col-md-6">
+                            <label for="inputDob" class="form-label">DOB</label>
+                            <input type="date" name="dob" class="form-control" id="inputDob" required="required" th:value="${candidate.dob}">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">City</label>
+                            <input type="text" name="city" class="form-control" id="inputCity" th:value="${candidate.city}" required="required">
+                        </div>
+                        
+                        <!-- File Uploads and Preview -->
+                        <div class="col-6">
+                            <label for="formFile1" class="form-label">Upload New Candidate Photo</label>
+                            <input class="form-control" name="profileImage1" type="file" id="formFile1">
+                        </div>
+                        <div class="col-6">
+                            <label for="formFile2" class="form-label">Upload New Candidate Symbol</label>
+                            <input class="form-control" name="profileImage2" type="file" id="formFile2">
+                        </div>
+                        <div class="col-6">
+                            <img style="width: 70px; height: 70px" class="img-fluid my_profile_picture" th:src="@{'/img/'+${candidate.candidatePhoto}}" alt="Candidate Photo" />
+                        </div>
+                        <div class="col-6">
+                            <img style="width: 70px; height: 70px" class="img-fluid my_profile_picture" th:src="@{'/img/'+${candidate.symbol}}" alt="Candidate Symbol" />
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary">Update Candidate</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

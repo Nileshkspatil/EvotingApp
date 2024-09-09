@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8">
+<title>dashboard page</title>
+</head>
+<body>
+<section>
+	
+	<div class="card mt-5">
+	
+		<div th:if="${session.message}"   th:classappend="${session.message.type}" class="alert alert-primary" role="alert">
+  
+  <p class="text-center" th:text="${session.message.content}"></p> 
+  <th:block th:remove="all"></th:block>
+ 	<th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+  
+	</div>  
+		
+		<div class="card-body text-center">	
+		
+			<h2 class="text-center">Candidate info</h2>
+				
+				<div class="table-responsive text-center">
+					<table class="table table-hover">
+					
+							  <thead class="table-dark">
+							    <tr>
+							      <th scope="col">cid</th>
+							      <th scope="col">Candidate name</th>
+							      <th scope="col">Email</th>
+							      <th scope="col">Mobile number</th>
+							       <th scope="col">city</th>
+							        <th scope="col">Profile Image</th>
+							         <th scope="col">Symbol</th>
+							      <th scope="col">Action</th>
+							     
+							    </tr>
+							  </thead>
+							  <tbody>
+							  
+							    <tr th:each="c: ${candidate}">
+							      <th scope="row" th:text="${'CID'+c.cid}">1</th>
+							      
+							      
+							      <td th:text="${c.fullName}"> </td>
+							      <td th:text="${c.email}"></td>
+							     
+							      <td th:text="${c.mob}">Otto</td>
+							      <td th:text="${c.city}"></td>
+							      <td >
+							      	<img src=""  class="my_profile_picture" th:src="@{'/img/'+${c.candidatePhoto}}" width="40" height="50" alt="profile photo" />
+							      	
+							      </td>
+							      <td >
+							      	<img src=""  class="my_profile_picture" th:src="@{'/img/'+${c.symbol}}" width="40" height="50" alt="profile2 photo" />
+							      	
+							      </td>
+							      <td>
+							   
+							      	<a href="#" th:href="@{'/admin/delete-candidate/' + ${c.cid}}"  class="btn btn-danger btn-sm">Delete</a>
+							      	
+							      		<form method="post" th:action="@{'/admin/update-candidate/'+${c.cid}}" class="mt-2" >
+							      	
+							      		<button type="submit" class="btn btn-primary btn-sm">Update</button>
+							      	
+							      	</form>
+							      	
+							      </td>
+							    </tr>
+							   
+							  </tbody>
+					</table>
+					</div>
+		
+		</div>
+	
+	</div>
+
+
+
+
+
+</section>
+
+</body>
+</html>

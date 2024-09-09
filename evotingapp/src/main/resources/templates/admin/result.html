@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Page</title>
+</head>
+<body>
+<section>
+    <div class="card mt-5">
+        <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-primary" role="alert">
+            <p class="text-center" th:text="${session.message.content}"></p> 
+            <th:block th:remove="all"></th:block>
+            <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+        </div>  
+
+        <div class="card-body">    
+            <h2 class="text-center">Result</h2>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Sr.</th> <!-- Serial Number -->
+                            <th scope="col">Profile Image</th>
+                            <th scope="col">Candidate Name</th>
+                            <th scope="col">Vote</th>
+                            <th scope="col">Symbol</th>
+                            <th scope="col">Result</th> <!-- Result Column -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="c, iterStat : ${candidate}" th:classappend="${iterStat.index == 0} ? 'table-success'">
+                            <th scope="row" th:text="${iterStat.index + 1}"></th> <!-- Serial Number -->
+                            <td>
+                                <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.candidatePhoto}}" width="40" height="50" alt="profile photo" />
+                            </td>
+                            <td th:text="${c.fullName}"></td>
+                            <td th:text="${c.vote}"></td>
+                            <td>
+                                <img src="" class="my_profile_picture" th:src="@{'/img/'+${c.symbol}}" width="40" height="50" alt="symbol photo" />
+                            </td>
+                            <td>
+                                <span th:if="${iterStat.index == 0}" th:text="'Winner'"></span> <!-- "Winner" for the first row -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

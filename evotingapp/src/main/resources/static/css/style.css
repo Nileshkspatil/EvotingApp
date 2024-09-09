@@ -1,0 +1,69 @@
+@charset "UTF-8";
+body{
+	background: #e2e2e2!important;
+	
+	}
+	
+.bg-primary{
+	background: #009688!important;
+}
+.banner{
+	width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8)),url(../img/banner.jpg);
+	background-size: cover;
+	color: white;
+	
+	
+}
+.card {
+    max-width: 1000px; /* Adjust width to fit content */
+    margin: 0 auto;    /* Center align the card */
+}
+
+.card-body {
+    padding: 20px; /* Adjust padding if necessary */
+}
+.highlight-winner {
+    background-color: #d4edda; /* Light green background for the winner */
+    font-weight: bold;
+}
+.card-custom {
+    max-width: 600px; /* Adjust width to fit your content */
+    margin: 0 auto; /* Center align the card */
+}
+
+
+
+/* Fix the navbar at the top */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the navbar stays on top of other content */
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  min-height: 400px; /* Increased minimum height to accommodate alerts */
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+
+#login .container #login-row #login-column #login-box #login-form .alert {
+  margin-bottom: 15px; /* Ensure space between alert and other elements */
+}
+
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+
+#login .container #login-row #login-column #login-box #login-form .form-group {
+  margin-bottom: 20px;
+}
+

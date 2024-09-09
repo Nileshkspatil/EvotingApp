@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+</head>
+<body>
+<section>
+    <div class="container mt-5">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <!-- Session message display -->
+                    <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-primary" role="alert">
+                        <p class="text-center" th:text="${session.message.content}"></p> 
+                        <th:block th:remove="all"></th:block>
+                        <th:block th:text="${@sessionHelper.removeMessageFromSession()}"></th:block>
+                    </div>  
+
+                    <!-- Form title -->
+                    <h2 class="text-center mb-4">Add Candidate</h2>
+                    
+                    <!-- Form -->
+                    <form class="row g-3" enctype="multipart/form-data" method="post" th:action="@{/admin/process-condidate}">
+                        <!-- Full Name -->
+                        <div class="col-12">
+                            <label for="inputAddress" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="inputAddress" name="fullName" placeholder="Enter full name" required="required">
+                        </div>
+                        
+                        <!-- Email and Mobile Number -->
+                        <div class="col-md-6">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Enter email" required="required">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword4" class="form-label">Mobile Number</label>
+                            <input type="number" name="mob" class="form-control" id="inputPassword4" placeholder="Enter mobile number" required="required">
+                        </div>
+                        
+                        <!-- DOB and City -->
+                        <div class="col-md-6">
+                            <label for="inputDob" class="form-label">DOB</label>
+                            <input type="date" name="dob" class="form-control" id="inputDob" required="required">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputCity" class="form-label">City</label>
+                            <input type="text" name="city" class="form-control" id="inputCity" placeholder="Enter city here" required="required">
+                        </div>
+                        
+                        <!-- File Uploads -->
+                        <div class="col-12">
+                            <label for="formFile1" class="form-label">Upload Candidate Photo</label>
+                            <input class="form-control" name="profileImage1" type="file" id="formFile1" required="required">
+                        </div>
+                        <div class="col-12">
+                            <label for="formFile2" class="form-label">Upload Candidate Symbol</label>
+                            <input class="form-control" name="profileImage2" type="file" id="formFile2" required="required">
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary">Save Candidate</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
