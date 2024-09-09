@@ -54,6 +54,10 @@ EvotingApp is a web-based voting application designed to simplify the voting pro
  Once a user casts their vote, they are logged out and cannot log in again.
  If a user logs in but encounters an issue and cannot cast their vote, they can log in again later to successfully cast their vote.
 
+# UI Snapshots
+Here is a preview of the EvotingApp interface:
+
+
 # Technologies Used
 - **Backend**: Java, Spring Boot
 - **Frontend**: HTML, CSS, Javascript, Thymeleaf
