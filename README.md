@@ -56,6 +56,23 @@ EvotingApp is a web-based voting application designed to simplify the voting pro
 
 # UI Snapshots
 Here is a preview of the EvotingApp interface:
+![home](https://github.com/user-attachments/assets/eccd527c-3cc6-4758-b13c-db4361a0d366)
+
+
+![addcandidate](https://github.com/user-attachments/assets/19fe59a1-ac6b-4ba9-aca8-0126ab588fe1)
+
+![candi-info](https://github.com/user-attachments/assets/b4481d03-52a3-4641-9969-4b3fc5c13d70)
+
+![evm](https://github.com/user-attachments/assets/3bde0d01-744c-4a4a-b830-e824679b4028)
+
+![vvpad](https://github.com/user-attachments/assets/215b9662-d67b-4631-8999-8c64b1eac2ce)
+
+
+![result](https://github.com/user-attachments/assets/99f653dd-7ff7-4d92-b6e1-5836759956af)
+
+
+
+
 
 
 # Technologies Used
