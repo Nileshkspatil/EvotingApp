@@ -15,14 +15,10 @@ EvotingApp is a web-based voting application designed to simplify the voting pro
    To download a copy of the project, use the following command:
    ```bash
    git clone https://github.com/Nileshkspatil/EvotingApp.git
-2. Navigate into the Project Directory:
-   After cloning, navigate to the project folder:
-   cd EvotingApp
-3. Install Dependencies: The project uses Maven to manage dependencies. Run the following command to download and install the required       
-   libraries:
-   mvn clean install
-4. Run the Application: Once the dependencies are installed, you can start the Spring Boot application with: mvn spring-boot:run
-5. Access the Application: After the application starts, open a browser and navigate to: http://localhost:8080
+2. Navigate into the Project Directory: cd EvotingApp
+3. Install Dependencies: mvn clean install
+4. Run the Application:  mvn spring-boot:run
+5. Access the Application: http://localhost:8080
 
 # Usage  
 
